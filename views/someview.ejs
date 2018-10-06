@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" class="body-full-height">
+<head>
+    <title>Pranage JSON Converter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" id="theme" href="/static/css/theme-default.css" />
+</head>
+<body>
+    <div class="login-container">
+
+        <div class="login-box animated fadeInDown">S
+            <div class="login-logo"></div>
+            <div class="login-body">
+                <div class="login-title"><strong>Welcome</strong>, Upload JSON</div>
+                <form ref='uploadForm' id='uploadForm' action='http://localhost:1337/upload' method='post' encType="multipart/form-data" class="form-horizontal">
+                    <div class="form-group" style="margin-bottom:20px">
+                        <div class="col-md-12">
+                            <input type="file" class="fileinput btn-danger" name="jsonupload" id="fileupload" data-filename-placement="inside" title="Please select your JSON file..." />
+                            <input type='submit' id="yukle" class="btn btn-success" value='Upload!' />
+                        </div>
+                    </div>
+                </form>
+				<% if (file) { %>
+				<form ref='convertForm' id='convertForm' action='http://localhost:1337/convert' method='post' encType="multipart/form-data" class="form-horizontal">
+                    <div class="form-group" style="margin-bottom:20px">
+                        <div class="col-md-12" style="text-align:center">
+						    <div class="alert alert-warning" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<input name="convert2rmd" id="fileconvert" type="text" class="btn btn-default" value='<%= file %>' /><br /><br />
+								<button class="btn btn-success" type='submit'><i class="fa fa-cog fa-spin"></i>Convert!</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+				<% } %>
+            </div>
+            <div class="login-footer">
+                <div class="pull-left">
+                    &copy; 2018 Pranageo.com
+                </div>
+                <div class="pull-right">
+                    <a href="#">About</a> |
+                    <a href="#">Privacy</a> |
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/plugins/bootstrap/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="/static/js/plugins/bootstrap/bootstrap-file-input.js"></script>
+    <script type="text/javascript" src="/static/js/plugins/fileinput/fileinput.min.js"></script>
+    <!-- END PAGE PLUGINS -->
+    <script type='text/javascript' src='/static/js/plugins/noty/jquery.noty.js'></script>
+    <script type='text/javascript' src='/static/js/plugins/noty/layouts/topRight.js'></script>
+    <script type='text/javascript' src='/static/js/plugins/noty/themes/default.js'></script>
+    <!-- START TEMPLATE -->
+
+    <script type="text/javascript" src="/static/js/plugins.js"></script>
+    <!-- END TEMPLATE -->
+	
+	<script>
+	<% if (msg) { %>
+		$(document).ready(function () {
+			noty({ text: '<%= msg %>', layout: 'topRight', type: '<%= status %>' });
+		});
+	<% } %>
+	</script>
+</body>
+</html>

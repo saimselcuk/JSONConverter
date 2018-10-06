@@ -1,0 +1,3 @@
+C:\Users\Saim\source\repos\JSONConverter\JSONConverter\obj\Debug\JSONConverter.njsproj.CoreCompileInputs.cache
+C:\Users\Saim\source\repos\JSONConverter\JSONConverter\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Saim\source\repos\JSONConverter\JSONConverter\obj\Debug\JSONConverter.njsprojAssemblyReference.cache
